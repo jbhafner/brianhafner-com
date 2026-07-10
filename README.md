@@ -23,6 +23,27 @@ Decap CMS needs a way to authenticate you before letting you publish. This is a 
 
 After that, writing a post is: log into `/admin/`, click **New Blog Post**, fill in title/date/description/body, click **Publish** — Decap commits the file to GitHub and Netlify rebuilds automatically. No Terminal needed.
 
+## ActiveCampaign integration
+
+The Contact, Snapshot request, and GEO checklist forms still submit through Netlify Forms exactly as before (so submissions stay visible in Netlify's Forms dashboard) — but a serverless function (`netlify/functions/submission-created.js`) now runs automatically on every submission and pushes the contact into ActiveCampaign with the tag your original plan called for:
+
+- Contact form → tag `Contact Inquiry`, plus a service-specific tag (`Snapshot Lead`, `GEO Lead`, `Attribution Lead`, or `Service: Not Sure`) based on which radio button was selected.
+- Snapshot request form → tag `Snapshot Requested`.
+- GEO checklist form → tag `Checklist Downloaded`.
+
+You can build AC automations off those tags exactly as described in your original brand refresh plan (confirmation emails, internal reminders, the 5-email GEO nurture sequence, etc.) — the function only handles getting the contact and tag into AC; the automations themselves are configured in ActiveCampaign, not here.
+
+**One-time setup required (you need to do this):**
+
+1. In ActiveCampaign: **Settings → Developer**. Copy your **API URL** (looks like `https://youraccountname.api-us1.com`, no trailing slash) and **API Key**.
+2. In Netlify: **Project configuration → Environment variables → Add a variable**. Add two:
+   - `AC_API_URL` — paste your API URL
+   - `AC_API_KEY` — paste your API key
+3. Trigger a new deploy (any git push does this, or use "Trigger deploy" in Netlify) so the function picks up the new environment variables.
+4. Submit a real test entry on each of the 3 forms, then check **ActiveCampaign → Contacts** for a test contact with the right tag applied. Also check **Netlify → Logs → Functions → submission-created** if something doesn't show up — it logs what it received and any errors.
+
+If you'd ever rather use ActiveCampaign's own embeddable forms instead of this function, that's also possible — just ask, since it's a straightforward swap.
+
 ## Local development (optional)
 
 If you ever want to preview changes on your own machine before pushing:
@@ -72,7 +93,9 @@ Not yet pointed at brianhafner.com — see prior notes on DNS cutover. Once you 
 ```
 package.json            Eleventy + build script
 .eleventy.js             Eleventy config (input/output dirs, collections, filters)
-netlify.toml             Build command + publish directory for Netlify
+netlify.toml             Build command, publish directory, and functions directory for Netlify
+netlify/functions/
+  submission-created.js  Runs on every form submission, syncs contact + tag to ActiveCampaign
 admin/
   index.html             Decap CMS loader
   config.yml             Decap CMS collections config (Blog Posts)
