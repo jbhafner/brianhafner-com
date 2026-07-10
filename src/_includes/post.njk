@@ -1,0 +1,38 @@
+---
+layout: base.njk
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap" style="max-width:760px;">
+    <span class="eyebrow">Blog</span>
+    <h1>{{ title }}</h1>
+    <p class="last-updated">{{ date | readableDate }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap post-body" style="max-width:760px;">
+    {{ content | safe }}
+  </div>
+</section>
+
+<section class="section-navy">
+  <div class="wrap" style="text-align:center;">
+    <h2>See how AI currently sees your brand.</h2>
+    <p style="max-width:560px; margin:0 auto 28px;">The AI Visibility Snapshot is free, human-reviewed, and delivered in 3 business days.</p>
+    <a href="/snapshot/" class="btn btn-primary">Get My Free AI Visibility Snapshot</a>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | dump | safe }},
+  "description": {{ description | dump | safe }},
+  "author": { "@type": "Person", "name": "Brian Hafner" },
+  "publisher": { "@type": "Organization", "name": "Brian Hafner Tech" },
+  "datePublished": {{ date | isoDate | dump | safe }},
+  "dateModified": {{ date | isoDate | dump | safe }},
+  "mainEntityOfPage": "https://brianhafner.com{{ page.url }}"
+}
+</script>

@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Blog | Brian Hafner
+description: Notes on AI Visibility, GEO, and getting cited by ChatGPT, Gemini, and Google AI Overviews.
+pagination:
+  data: collections.posts
+  size: 6
+  alias: pagePosts
+permalink: "{% if pagination.pageNumber == 0 %}/blog/{% else %}/blog/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <span class="eyebrow">Blog</span>
+    <h1>AI Visibility &amp; GEO notes.</h1>
+    <p class="lead" style="max-width:700px;">Short, opinionated posts on getting cited by ChatGPT, Gemini, and Google AI Overviews.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    {% for post in pagePosts %}
+    <div class="card" style="margin-bottom:24px;">
+      <div class="case-meta">{{ post.data.date | readableDate }}</div>
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.description }}</p>
+      <a href="{{ post.url }}" class="btn btn-secondary">Continue Reading</a>
+    </div>
+    {% endfor %}
+
+    <div style="display:flex; justify-content:space-between; margin-top:32px;">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="btn btn-secondary">« Previous</a>
+      {% else %}
+        <span></span>
+      {% endif %}
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="btn btn-secondary">Next »</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

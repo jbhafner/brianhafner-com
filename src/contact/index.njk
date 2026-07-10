@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Brian Hafner | AI Visibility Consultant</title>
-<meta name="description" content="Get in touch with Brian Hafner about AI Visibility consulting, GEO implementation, or attribution work for your service business.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="canonical" href="https://brianhafner.com/contact/">
-</head>
-<body>
-
-<header class="site-header">
-  <div class="nav-row">
-    <a href="/" class="wordmark">Brian <span>Hafner</span></a>
-    <nav class="main-nav">
-      <a href="/services/">Services</a>
-      <a href="/case-studies/">Case Studies</a>
-      <a href="https://brianhafner.com/blog/">Blog</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a href="/snapshot/" class="btn btn-primary">Get My Free AI Visibility Snapshot</a>
-      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="hero" style="padding-bottom:0;">
+---
+layout: base.njk
+title: "Contact Brian Hafner | AI Visibility Consultant"
+description: "Get in touch with Brian Hafner about AI Visibility consulting, GEO implementation, or attribution work for your service business."
+---
+<section class="hero" style="padding-bottom:0;">
     <div class="wrap" style="max-width:640px;">
       <h1>Let's talk about how AI sees your brand.</h1>
     </div>
@@ -99,52 +72,3 @@
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <a href="/" class="wordmark" style="color:#fff;">Brian <span>Hafner</span></a>
-        <p style="margin-top:16px; max-width:320px;">AI Visibility consulting for service businesses. Know exactly how AI sees your brand, then fix it.</p>
-      </div>
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/case-studies/">Case Studies</a></li>
-          <li><a href="https://brianhafner.com/blog/">Blog</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:bh@brianhafner.com">bh@brianhafner.com</a></li>
-          <li>San Diego, CA</li>
-          <li><a href="https://brianhafner.info" rel="me">brianhafner.info →</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Brian Hafner Tech. I also write developer-focused notes at <a href="https://brianhafner.info" rel="me">brianhafner.info</a>.</span>
-    </div>
-  </div>
-</footer>
-<script>
-  // Pre-select service radio button from ?service= URL param
-  (function () {
-    var params = new URLSearchParams(window.location.search);
-    var service = params.get("service");
-    var map = { snapshot: "svc-snapshot", "geo-retainer": "svc-geo", attribution: "svc-attribution" };
-    if (service && map[service]) {
-      var el = document.getElementById(map[service]);
-      if (el) el.checked = true;
-    }
-  })();
-</script>
-<script src="/js/main.js"></script>
-</body>
-</html>

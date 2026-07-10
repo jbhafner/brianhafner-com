@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Case Studies | Brian Hafner</title>
-<meta name="description" content="Real results from AI Visibility, GEO, and lead-to-revenue attribution work with Brian Hafner Tech.">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/styles.css">
-<link rel="canonical" href="https://brianhafner.com/case-studies/">
+<link rel="canonical" href="https://brianhafner.com{{ canonical or page.url }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if schema %}
+<script type="application/ld+json">
+{{ schema | dump | safe }}
+</script>
+{% endif %}
 </head>
 <body>
 
@@ -17,7 +23,7 @@
     <nav class="main-nav">
       <a href="/services/">Services</a>
       <a href="/case-studies/">Case Studies</a>
-      <a href="https://brianhafner.com/blog/">Blog</a>
+      <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
     </nav>
@@ -29,26 +35,7 @@
 </header>
 
 <main id="main">
-
-  <section class="hero" style="padding-bottom:0;">
-    <div class="wrap">
-      <span class="eyebrow">Case Studies</span>
-      <h1>Real results, with the receipts.</h1>
-      <p class="lead" style="max-width:700px;">Every case study here reflects verified numbers, not estimated ranges — reconciled against the client's own accounting wherever possible.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="card">
-        <div class="case-meta">Lead-to-Revenue Tracking · Sept 2025 – Apr 2026</div>
-        <h3>Planet Apparel: From Guesswork to Clarity</h3>
-        <p>A custom apparel company closes every deal offline — by quote, phone, or email. We connected those leads to closed revenue and found a 10× return on Google Ads spend, with attribution that reconciled to the books for four consecutive months.</p>
-        <a href="/case-studies/planet-apparel/" class="btn btn-secondary">Read the full case study</a>
-      </div>
-    </div>
-  </section>
-
+{{ content | safe }}
 </main>
 
 <footer class="site-footer">
@@ -63,7 +50,7 @@
         <ul>
           <li><a href="/services/">Services</a></li>
           <li><a href="/case-studies/">Case Studies</a></li>
-          <li><a href="https://brianhafner.com/blog/">Blog</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -83,5 +70,17 @@
   </div>
 </footer>
 <script src="/js/main.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function (user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function () {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>

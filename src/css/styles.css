@@ -207,6 +207,12 @@ section { padding: 72px 0; }
   margin-bottom: 16px;
 }
 
+.post-body h2 { margin-top: 40px; }
+.post-body h3 { margin-top: 28px; }
+.post-body ul, .post-body ol { padding-left: 22px; margin: 0 0 16px; }
+.post-body li { margin-bottom: 8px; }
+.post-body strong { color: var(--navy); }
+
 .faq-item {
   border-bottom: 1px solid var(--border);
   padding: 20px 0;

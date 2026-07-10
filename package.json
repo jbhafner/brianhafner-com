@@ -1,0 +1,13 @@
+{
+  "name": "brianhafner-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "brianhafner.com - static site built with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

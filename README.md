@@ -1,65 +1,104 @@
-# brianhafner.com — static site
+# brianhafner.com — Eleventy + Decap CMS
 
-A plain HTML/CSS site (no build step) implementing the new "AI Visibility Consultant" positioning from your brand refresh plan and web developer handoff docs: Home, About, Services (3 offers), AI Visibility Snapshot landing page, Case Studies (Planet Apparel), and Contact — with Netlify Forms wired up for the Snapshot request, contact form, and GEO checklist signup.
+This site is now built with [Eleventy](https://www.11ty.dev/) (a static site generator) instead of plain HTML files, so that blog posts live on this same site and can be added without hand-writing HTML. [Decap CMS](https://decapcms.org/) is wired up as a `/admin` editor for posting without using git or Terminal.
 
-## Deploy to Netlify
+## What changed from the plain-HTML version
 
-**Fastest — drag and drop (no git required):**
-1. Go to [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Drag this whole `site` folder onto the page.
-3. Netlify gives you a live URL (like `random-name-123.netlify.app`) in seconds.
+- All page source now lives under `src/` (templates in Nunjucks `.njk` format) instead of raw `.html` files at the repo root.
+- One shared layout (`src/_includes/base.njk`) holds the header, nav, and footer — editing it once updates every page, instead of editing every file by hand.
+- `src/blog/` holds the blog: `index.njk` is the paginated listing, `posts/*.md` are individual posts (Markdown, not HTML).
+- Netlify now runs a real build step (`npm run build`, via `netlify.toml`) that turns `src/` into the `_site/` folder Netlify publishes. Previously there was no build step at all.
+- `/admin/` is the Decap CMS editor (see setup below).
 
-**Recommended — connect a Git repo (so future edits redeploy automatically):**
-1. Push this folder to a new GitHub repo.
-2. In Netlify: **Add new site → Import an existing project** → pick the repo.
-3. Build command: leave blank. Publish directory: `.` (already set in `netlify.toml`).
-4. Deploy.
+## One-time setup after this deploys (you need to do this in the Netlify dashboard)
 
-## Point your domain (brianhafner.com)
+Decap CMS needs a way to authenticate you before letting you publish. This is a one-time setup:
 
-Once the site is live on Netlify:
-1. In Netlify: **Site settings → Domain management → Add a domain** → enter `brianhafner.com`.
-2. Netlify will show DNS records to add at your domain registrar (or you can transfer DNS to Netlify entirely for the simplest setup).
-3. Your current WordPress host stays live until you actually switch DNS over — so there's no downtime risk while you test.
-4. Netlify auto-provisions a free SSL certificate once DNS points to it.
+1. In Netlify: **Site settings → Identity → Enable Identity**.
+2. Still in Identity settings, under **Registration**, set it to **Invite only** (so random people can't sign up).
+3. Under **Services → Git Gateway**, click **Enable Git Gateway**. This lets Decap commit changes to GitHub on your behalf when you click Publish.
+4. Go to the **Identity** tab (top nav of your site in Netlify) → **Invite users** → invite yourself with your email.
+5. Check your email, accept the invite, and set a password.
+6. Visit `https://<your-site>.netlify.app/admin/` (or `brianhafner.com/admin/` once the domain is live), log in, and you'll see the Blog Posts collection.
 
-## Forms
+After that, writing a post is: log into `/admin/`, click **New Blog Post**, fill in title/date/description/body, click **Publish** — Decap commits the file to GitHub and Netlify rebuilds automatically. No Terminal needed.
 
-Three forms are wired for [Netlify Forms](https://docs.netlify.com/forms/setup/) — no backend code needed:
-- **Contact** (`/contact/`) — name, email, company URL, service interest, message.
-- **Snapshot request** (`/snapshot/`) — name, email, company URL, prompt.
-- **GEO checklist signup** (on the homepage) — name, email, company URL.
+## Local development (optional)
 
-Submissions appear in **Netlify → your site → Forms** and can be forwarded to your email or to a Zapier/Make automation from there (Site settings → Forms → Form notifications). Each has spam-honeypot protection built in.
+If you ever want to preview changes on your own machine before pushing:
 
-**One thing to do after your first deploy:** open each form page once and submit a real test entry, then check Netlify's Forms dashboard to confirm all three forms were detected and the fields came through correctly.
+```
+npm install
+npm run serve
+```
 
-## What's placeholder / needs your input before this looks fully "real"
+This runs Eleventy's local dev server with live reload.
 
-- **Snapshot delivery window** — set to "3 business days" as a placeholder (matches what's live on the current site). Confirm or change it in `snapshot/index.html` and `services/index.html`.
-- **GEO Retainer & Lead-to-Revenue Tracking pricing** — currently says "scoped per project after a discovery call" rather than a number, since no pricing was specified. Add real numbers if you want them public.
-- **Sample Snapshot panel** on `/snapshot/` is an illustrative mockup, not a real redacted client report — swap in a real sanitized excerpt when you have one.
-- **GEO Best Practices Checklist PDF** isn't built yet — the signup form on the homepage currently just captures the lead (no attached file to send). Add the real PDF and update the form's Netlify notification/Zapier step to deliver it.
-- **Blog** isn't included — there was no existing blog content to migrate into a static build. Say the word if you want a simple blog section added later.
-- **Case Studies** currently has just Planet Apparel. Add more `case-studies/<slug>/index.html` pages using that file as a template as new case studies are ready.
+## Blog migration notes
+
+9 posts were migrated from the old WordPress blog (`brianhafner.com/blog`) — the ones that fit the new AI Visibility / GEO positioning (May–June 2026). Their original URLs were preserved exactly (e.g. `/building-your-ai-ready-knowledge-base/`) so there's no SEO redirect needed if this ever replaces the WordPress site.
+
+Older posts (generalist marketing content — retargeting, lead scoring, email sequences, etc.) were intentionally left behind, per the curation call made when this migration started. If you want any of those brought over later, just point me at the ones you want and I'll add them the same way.
+
+To add a post yourself without Decap: create a new file in `src/blog/posts/` named `YYYY-MM-DD-your-slug.md` with front matter like:
+
+```
+---
+title: "Your Post Title"
+date: 2026-07-15
+description: "One or two sentences — shows on the blog index and as the SEO meta description."
+---
+Your post content in Markdown goes here.
+```
+
+Commit and push — Netlify handles the rest.
+
+## Deploying
+
+Same as before: push to the `main` branch on GitHub, and Netlify auto-builds and deploys.
+
+```
+git add .
+git commit -m "your message"
+git push
+```
+
+## Domain
+
+Not yet pointed at brianhafner.com — see prior notes on DNS cutover. Once you do point the domain here, remember the WordPress blog it replaces will go offline, so the `/blog/` link that used to point to WordPress now correctly resolves on this same site instead.
 
 ## File structure
 
 ```
-/index.html                          Home
-/about/index.html                    About
-/services/index.html                 Services (3 offers + FAQ)
-/snapshot/index.html                 AI Visibility Snapshot landing page
-/snapshot/thank-you/index.html
-/case-studies/index.html             Case studies index
-/case-studies/planet-apparel/index.html
-/contact/index.html                  Contact form
-/contact/thank-you/index.html
-/404.html
-/css/styles.css                      All styling (brand colors: navy #1E1F50, coral #F08C8C, cream #F4E8DD)
-/js/main.js                          Mobile nav toggle + service-param prefill
-/favicon.svg
-/robots.txt
-/sitemap.xml
-/netlify.toml
+package.json            Eleventy + build script
+.eleventy.js             Eleventy config (input/output dirs, collections, filters)
+netlify.toml             Build command + publish directory for Netlify
+admin/
+  index.html             Decap CMS loader
+  config.yml             Decap CMS collections config (Blog Posts)
+src/
+  _includes/
+    base.njk             Shared layout: head, nav, footer
+    post.njk              Blog post layout (wraps base.njk)
+  index.njk               Home
+  about/index.njk
+  services/index.njk
+  snapshot/index.njk
+  snapshot/thank-you/index.njk
+  case-studies/index.njk
+  case-studies/planet-apparel/index.njk
+  contact/index.njk
+  contact/thank-you/index.njk
+  404.njk
+  sitemap.njk             Dynamic sitemap (auto-includes new blog posts)
+  blog/
+    index.njk             Paginated blog listing
+    posts/
+      posts.json          Shared front matter for all posts (layout, permalink pattern)
+      *.md                 Individual posts
+  images/uploads/          Where Decap-uploaded images land
+  css/styles.css
+  js/main.js
+  favicon.svg
+  robots.txt
 ```
