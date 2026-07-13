@@ -12,3 +12,108 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# --- Redirects from the old WordPress site (added for the brianhafner.com launch) ---
+# Old service pages -> new Services page
+[[redirects]]
+  from = "/lead-generation/"
+  to = "/services/"
+  status = 301
+[[redirects]]
+  from = "/seo/"
+  to = "/services/"
+  status = 301
+[[redirects]]
+  from = "/digital-marketing/"
+  to = "/services/"
+  status = 301
+[[redirects]]
+  from = "/mens-health-lead-generation-services/"
+  to = "/services/"
+  status = 301
+
+# Old blog posts not migrated to the new site -> new Blog index
+[[redirects]]
+  from = "/the-marketing-analytics-audit-playbook-what-499-reveals-in-7-days/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/seo-content-ops-with-ai-how-to-brief-draft-and-qa-without-publishing-junk/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/ai-assisted-ad-testing-generate-variants-without-losing-brand-voice/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/automated-marketing-reporting-without-expensive-tools-sheets-bigquery-looker-studio/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/retargeting-without-being-creepy-funnel-based-audiences-that-convert/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/the-3-email-welcome-sequence-that-turns-cold-leads-warm/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/lead-scoring-for-small-businesses-a-simple-model-using-sheets-crm-tags/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/landing-page-elements-that-lift-lead-quality-not-just-conversion-rate/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/from-clicks-to-clients-building-a-marketing-funnel-that-actually-converts-now/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/call-form-tracking-to-qualified-lead-data-a-simple-workflow/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/utm-strategy-that-actually-matches-leads-to-revenue-no-more-mystery-leads/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/ga4-audit-checklist-10-things-i-verify-before-trusting-the-data/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/a-practical-geo-audit-checklist-tools-quick-wins-in-60-minutes/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/on-page-geo-how-to-structure-pages-so-ai-can-understand-and-cite-you/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/ai-overviews-answer-engines-what-changed-and-what-to-do-next/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/geo-101-in-2026-how-to-show-up-in-ai-answers-not-just-google/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/2026-marketing-predictions-you-can-actually-use-7-moves-to-improve-seo-google-ads-and-lead-quality-in-q1/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/2025-year-end-marketing-review-how-to-use-q4-data-to-plan-a-stronger-2026/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/from-clicks-to-clients-building-a-marketing-funnel-that-actually-converts/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/the-3-biggest-lead-quality-problems-and-how-to-fix-them-with-better-data/"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/what-ai-cant-do-yet-in-marketing-and-why-human-insight-still-wins/"
+  to = "/blog/"
+  status = 301
