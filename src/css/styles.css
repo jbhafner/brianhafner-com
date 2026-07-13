@@ -287,6 +287,21 @@ footer.site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; 
   align-items: start;
 }
 
+.avatar-circle {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  object-fit: cover;
+}
+
 .tag-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 16px 0; }
 .tag-list li {
   background: var(--navy-soft);
