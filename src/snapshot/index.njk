@@ -121,6 +121,7 @@ description: "Get a free, human-reviewed AI Visibility audit. See how ChatGPT, G
             <textarea id="sn-prompt" name="prompt" placeholder="A sentence or two is plenty."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Request your Snapshot</button>
+          <p class="form-note">By submitting this form, you agree to receive the requested information and occasional emails from Brian Hafner. You may unsubscribe at any time. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         </form>
       </div>
     </div>
@@ -135,13 +136,24 @@ description: "Get a free, human-reviewed AI Visibility audit. See how ChatGPT, G
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What's included in the Snapshot?", "acceptedAnswer": { "@type": "Answer", "text": "A citation audit across major AI answer engines, an entity clarity score, a schema and structured-data gap analysis, and a prioritized list of recommendations." } },
-    { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "3 business days from request to delivery." } },
-    { "@type": "Question", "name": "Do you re-audit later?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — re-audits are available, and are included as part of the ongoing GEO Retainer service." } },
-    { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "The AI Visibility Snapshot is free." } },
-    { "@type": "Question", "name": "Who is Brian?", "acceptedAnswer": { "@type": "Answer", "text": "Brian Hafner is an AI Visibility consultant based in San Diego who personally reviews every Snapshot." } }
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What's included in the Snapshot?", "acceptedAnswer": { "@type": "Answer", "text": "A citation audit across major AI answer engines, an entity clarity score, a schema and structured-data gap analysis, and a prioritized list of recommendations." } },
+        { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "3 business days from request to delivery." } },
+        { "@type": "Question", "name": "Do you re-audit later?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — re-audits are available, and are included as part of the ongoing GEO Retainer service." } },
+        { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "The AI Visibility Snapshot is free." } },
+        { "@type": "Question", "name": "Who is Brian?", "acceptedAnswer": { "@type": "Answer", "text": "Brian Hafner is an AI Visibility consultant based in San Diego who personally reviews every Snapshot." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://brianhafner.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Visibility Snapshot", "item": "https://brianhafner.com/snapshot/" }
+      ]
+    }
   ]
 }
 </script>

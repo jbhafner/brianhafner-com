@@ -16,6 +16,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="canonical" href="https://brianhafner.com{{ canonical or page.url }}">
 {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://brianhafner.com/#organization",
+      "name": "Brian Hafner Tech",
+      "legalName": "Brian Hafner Tech",
+      "url": "https://brianhafner.com/",
+      "founder": { "@id": "https://brianhafner.com/#person" },
+      "sameAs": ["https://www.linkedin.com/in/brianhafner/"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://brianhafner.com/#professionalservice",
+      "name": "Brian Hafner Tech",
+      "url": "https://brianhafner.com/",
+      "founder": { "@id": "https://brianhafner.com/#person" },
+      "areaServed": "US",
+      "description": "AI Visibility (GEO), marketing analytics, and lead attribution consulting for service businesses."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://brianhafner.com/#person",
+      "name": "Brian Hafner",
+      "jobTitle": "AI Visibility Consultant",
+      "url": "https://brianhafner.com/about/",
+      "worksFor": { "@id": "https://brianhafner.com/#organization" },
+      "knowsAbout": ["AI Visibility", "Generative Engine Optimization (GEO)", "Marketing Analytics", "Lead Attribution", "Google Ads", "Google Analytics (GA4)", "Google Tag Manager"],
+      "sameAs": ["https://www.linkedin.com/in/brianhafner/", "https://brianhafner.info"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://brianhafner.com/#website",
+      "url": "https://brianhafner.com/",
+      "name": "Brian Hafner",
+      "publisher": { "@id": "https://brianhafner.com/#organization" }
+    }
+  ]
+}
+</script>
 {% if schema %}
 <script type="application/ld+json">
 {{ schema | dump | safe }}
@@ -71,12 +113,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul>
           <li><a href="mailto:bh@brianhafner.com">bh@brianhafner.com</a></li>
           <li>San Diego, CA</li>
+          <li><a href="https://www.linkedin.com/in/brianhafner/" rel="me" target="_blank">LinkedIn →</a></li>
           <li><a href="https://brianhafner.info" rel="me">brianhafner.info →</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Brian Hafner Tech. I also write developer-focused notes at <a href="https://brianhafner.info" rel="me">brianhafner.info</a>.</span>
+      <span>© 2026 Brian Hafner. Brian Hafner is an AI Visibility consultant operating as Brian Hafner Tech. I also write developer-focused notes at <a href="https://brianhafner.info" rel="me">brianhafner.info</a>.</span>
+      <nav class="footer-legal-links" aria-label="Legal">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/accessibility/">Accessibility Statement</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/brianhafner/" rel="me" target="_blank">LinkedIn</a>
+      </nav>
     </div>
   </div>
 </footer>

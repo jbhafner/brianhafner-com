@@ -56,7 +56,7 @@ AI loves structured, direct answers. Add use cases, process ("how it works"), pr
 
 ### 4) Connect related entities with internal linking
 
-Build a cluster: Brand → services → case studies → FAQs → comparisons. Experts → authored content → credentials. Locations → service areas → proof.
+Build a cluster: Brand → [services](/services/) → [case studies](/case-studies/) → FAQs → comparisons. Experts → authored content → credentials. Locations → service areas → proof.
 
 ## Schema Helps, But Clarity Wins
 

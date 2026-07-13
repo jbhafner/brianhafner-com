@@ -7,7 +7,7 @@ description: "Brian Hafner is an AI Visibility consultant helping service busine
     <div class="wrap">
       <span class="eyebrow">About</span>
       <h1>I'm Brian Hafner. I help service businesses get found in AI answers.</h1>
-      <p class="lead" style="max-width:760px;">I'm Brian Hafner, an AI Visibility consultant helping service businesses get cited, recommended, and quoted by ChatGPT, Gemini, and Google AI Overviews. Based in San Diego, I combine two decades of data and analytics experience with hands-on technical implementation — schema, entity clarity, and revenue attribution that proves the work is paying off.</p>
+      <p class="lead" style="max-width:760px;">I'm Brian Hafner, an AI Visibility consultant helping service businesses get cited, recommended, and quoted by ChatGPT, Gemini, and Google AI Overviews. Based in San Diego, I combine two decades of data and analytics experience with hands-on technical implementation — schema, entity clarity, and revenue attribution that proves the work is paying off. I operate this consulting practice as Brian Hafner Tech.</p>
     </div>
   </section>
 
@@ -21,7 +21,7 @@ description: "Brian Hafner is an AI Visibility consultant helping service busine
       <div>
         <h2>From Tokyo trading floors to AI strategy.</h2>
         <p>For over two decades I've navigated the evolution of data — from building trading applications in Tokyo's financial sector, to managing six-figure monthly ad spends for modern brands, to a full-stack development certification at UC San Diego Extension. Each chapter reframes the same underlying skill: finding signal in ambiguous, high-stakes data and building systems that make it legible.</p>
-        <p>That analytical foundation is what I bring to AI Visibility work today — it's not a pivot, it's the same discipline applied to a new layer of search.</p>
+        <p>That analytical foundation is what I bring to AI Visibility work today — it's not a pivot, it's the same discipline applied to a new layer of search. You can see it in practice across the <a href="/services/">services</a> I offer and in the <a href="/case-studies/planet-apparel/">Planet Apparel case study</a>.</p>
       </div>
     </div>
   </section>
@@ -58,14 +58,26 @@ description: "Brian Hafner is an AI Visibility consultant helping service busine
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Brian Hafner",
-  "jobTitle": "AI Visibility Consultant",
-  "description": "I'm Brian Hafner, an AI Visibility consultant helping service businesses get cited, recommended, and quoted by ChatGPT, Gemini, and Google AI Overviews. Based in San Diego, I combine two decades of data and analytics experience with hands-on technical implementation — schema, entity clarity, and revenue attribution.",
-  "url": "https://brianhafner.com/about/",
-  "sameAs": ["https://brianhafner.info"],
-  "worksFor": { "@type": "Organization", "name": "Brian Hafner Tech" },
-  "knowsAbout": ["AI Visibility", "Generative Engine Optimization", "SEO", "Marketing Attribution"],
-  "alumniOf": "UC San Diego Extension"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://brianhafner.com/#person",
+      "name": "Brian Hafner",
+      "jobTitle": "AI Visibility Consultant",
+      "description": "I'm Brian Hafner, an AI Visibility consultant helping service businesses get cited, recommended, and quoted by ChatGPT, Gemini, and Google AI Overviews. Based in San Diego, I combine two decades of data and analytics experience with hands-on technical implementation — schema, entity clarity, and revenue attribution.",
+      "url": "https://brianhafner.com/about/",
+      "sameAs": ["https://www.linkedin.com/in/brianhafner/", "https://brianhafner.info"],
+      "worksFor": { "@id": "https://brianhafner.com/#organization" },
+      "knowsAbout": ["AI Visibility", "Generative Engine Optimization (GEO)", "SEO", "Marketing Analytics", "Lead Attribution", "Google Ads", "Google Analytics (GA4)", "Google Tag Manager"],
+      "alumniOf": "UC San Diego Extension"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://brianhafner.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://brianhafner.com/about/" }
+      ]
+    }
+  ]
 }
 </script>

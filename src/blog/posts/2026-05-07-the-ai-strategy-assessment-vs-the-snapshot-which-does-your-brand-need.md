@@ -11,7 +11,7 @@ Think of the Snapshot as a high-level diagnostic. It answers the immediate quest
 
 **A Deeper Strategy Engagement: The "Deep Dive"**
 
-While the Snapshot shows you the *what*, a deeper strategy engagement explains the *why* and the *how*. This looks at data pipelines (how your business data is being fed into the ecosystem), competitive gap analysis (why competitors are getting the "mention" over you), and a long-term roadmap to ensure your brand remains a primary reference point for AI models as they become the new gatekeepers of search.
+While the Snapshot shows you the *what*, a deeper strategy engagement explains the *why* and the *how*. This looks at data pipelines (how your business data is being fed into the ecosystem), competitive gap analysis (why competitors are getting the "mention" over you), and a long-term roadmap to ensure your brand remains a primary reference point for AI models as they become the new gatekeepers of search. This is the work covered under the [GEO Retainer](/services/).
 
 **Which one do you need?**
 

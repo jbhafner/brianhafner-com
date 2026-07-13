@@ -26,13 +26,25 @@ layout: base.njk
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": {{ title | dump | safe }},
-  "description": {{ description | dump | safe }},
-  "author": { "@type": "Person", "name": "Brian Hafner" },
-  "publisher": { "@type": "Organization", "name": "Brian Hafner Tech" },
-  "datePublished": {{ date | isoDate | dump | safe }},
-  "dateModified": {{ date | isoDate | dump | safe }},
-  "mainEntityOfPage": "https://brianhafner.com{{ page.url }}"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": {{ title | dump | safe }},
+      "description": {{ description | dump | safe }},
+      "author": { "@id": "https://brianhafner.com/#person" },
+      "publisher": { "@id": "https://brianhafner.com/#organization" },
+      "datePublished": {{ date | isoDate | dump | safe }},
+      "dateModified": {{ date | isoDate | dump | safe }},
+      "mainEntityOfPage": "https://brianhafner.com{{ page.url }}"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://brianhafner.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://brianhafner.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": {{ title | dump | safe }}, "item": "https://brianhafner.com{{ page.url }}" }
+      ]
+    }
+  ]
 }
 </script>
