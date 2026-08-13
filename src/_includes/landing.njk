@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NC8824Q');</script>
+<!-- End Google Tag Manager -->
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="canonical" href="https://brianhafner.com{{ canonical or page.url }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://brianhafner.com/#organization",
+      "name": "Brian Hafner Tech",
+      "legalName": "Brian Hafner Tech",
+      "url": "https://brianhafner.com/",
+      "founder": { "@id": "https://brianhafner.com/#person" },
+      "sameAs": ["https://www.linkedin.com/in/brianhafner/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://brianhafner.com/#person",
+      "name": "Brian Hafner",
+      "jobTitle": "AI Visibility Consultant",
+      "url": "https://brianhafner.com/about/",
+      "worksFor": { "@id": "https://brianhafner.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/brianhafner/", "https://brianhafner.info"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://brianhafner.com/#website",
+      "url": "https://brianhafner.com/",
+      "name": "Brian Hafner",
+      "publisher": { "@id": "https://brianhafner.com/#organization" }
+    }
+  ]
+}
+</script>
+{% if schema %}
+<script type="application/ld+json">
+{{ schema | dump | safe }}
+</script>
+{% endif %}
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC8824Q"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="site-header" style="position:static;">
+  <div class="nav-row">
+    <span class="wordmark">Brian <span>Hafner</span></span>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer style="background:var(--navy); color:rgba(255,255,255,0.6); padding:24px 0; margin-top:40px;">
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px;">
+    <span>© 2026 Brian Hafner. Brian Hafner is an AI Visibility consultant operating as Brian Hafner Tech.</span>
+    <span><a href="/privacy-policy/" style="color:rgba(255,255,255,0.6);">Privacy Policy</a> · <a href="mailto:bh@brianhafner.com" style="color:rgba(255,255,255,0.6);">bh@brianhafner.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
