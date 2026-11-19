@@ -97,6 +97,7 @@ function getDealTitle(formName, data) {
 function getDealDescription(formName, data) {
   const lines = [`Form: ${formName}`];
   if (data.company_url) lines.push(`Website: ${data.company_url}`);
+  if (data.competitor) lines.push(`Competitor: ${data.competitor}`);
   if (data.service) lines.push(`Service interest: ${data.service}`);
   if (data.source) lines.push(`Source: ${data.source}`);
   if (data.prompt) lines.push(`\nWhat they said:\n${data.prompt}`);
